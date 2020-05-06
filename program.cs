@@ -17,14 +17,7 @@ namespace Prime
       foreach (int num in primeList)
       {
         Console.Write(num + " ");
-
       }
-
-
-
-
-
     }
-
   }
 }

@@ -9,31 +9,24 @@ namespace Prime.Models
     {
       List<int> found = new List<int> { };
       List<int> primeList = new List<int> { };
+      List<int> nonPrimeList = new List<int> { };
       int prime = 2;
       for (int i = 2; i <= input; i++)
       {
         found.Add(i);
       }
-      // Console.WriteLine(found.Count);
       int counter = found.Count;
-      for (int i = counter - 1; i >= 2; i--)
+      for (int j = 0; j < found.Count; j++)
       {
-        for (int j = prime; j < counter - 1; j++)
+        for (int i = found[j] + 1; i <= counter + 1; i++)
         {
-          Console.WriteLine($"this is i:{i} this is j: {j}");
-          if (found[i] % j == 0 && found[i] != j)
+          if (found[j] / i != 1 && i % found[j] == 0)
           {
-            //Console.WriteLine("This should be not prime " + found[i]);
-            //found.Remove(i); 
-          }
-          else
-          {
-            if (!primeList.Contains(j))
-              primeList.Add(j);
+            found.Remove(i);
           }
         }
       }
-      return primeList;
+      return found;
     }
   }
 }
